@@ -1,0 +1,54 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 水平スクロールを防ぐ */
+  }
+  
+  header {
+    width: 100%; /* ヘッダーの幅をビューポートの幅に合わせる */
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .image-container {
+    display: flex;
+    min-width: 300%; /* 3つの画像を含めるためにコンテナの幅を拡大 */
+    overflow: hidden; /* 非表示領域を隠す */
+  }
+  
+  .slide {
+    width: 100vw; /* 各画像の幅をビューポートの幅に設定 */
+    flex: 0 0 auto; /* 画像が縮小または拡大しないように設定 */
+    cursor: pointer;
+    transition: transform 0s ease;
+  }
+  
+  /* image-containerを左に100vwだけシフトして、画像2が表示されるようにします */
+  .image-container {
+    transform: translateX(-100vw);
+  }
+  
+  .slide:first-child {
+    left: -100%; /* 最初の画像を表示 */
+    z-index:2;
+}
+
+.slide:nth-child(2) {
+    left: 0%; /* 最初の画像を表示 */
+    z-index:2;
+}
+
+.slide:nth-child(3) {
+    left: 100%; /* 最初の画像を表示 */
+    z-index:2;
+}
+
+.image-container img {
+  user-select: none; /* 画像の選択を防ぐ */
+  -webkit-user-select: none; /* Chrome、Safari用 */
+  -moz-user-select: none; /* Firefox用 */
+  -ms-user-select: none; /* Internet Explorer用 */
+}
+
